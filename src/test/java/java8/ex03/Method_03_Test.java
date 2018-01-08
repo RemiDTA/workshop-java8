@@ -7,6 +7,7 @@ import org.junit.Test;
 import java8.data.Data;
 import java8.data.Person;
 
+
 /**
  * Exercice 03 - Méthode statique
  */
@@ -18,6 +19,10 @@ public class Method_03_Test {
 
         // TODO créer une méthode statique IDao getDefaultInstance()
         // TODO cette méthode retourne une instance de la classe DaoA
+        static IDao getDefaultInstance(){
+        	DaoA daoA = new Method_03_Test().new DaoA();
+			return daoA;
+        }
     }
     // end::IDao[]
 
@@ -36,7 +41,7 @@ public class Method_03_Test {
     public void test_getDefaultInstance() throws Exception {
         // TODO invoquer la méthode getDefaultInstance() pour que le test soit passant
         IDao result = null;
-
+        result=IDao.getDefaultInstance();
         assert result.findAll().size() == 20;
     }
 }
